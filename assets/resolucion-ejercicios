@@ -1,0 +1,70 @@
+5. Ejercicios Desarrollados
+En esta sección se presentan los cinco ejercicios resueltos durante la práctica. Los ejercicios del 1 al 4 corresponden a la implementación y análisis del árbol binario, mientras que el ejercicio 5 aplica los recorridos al proyecto integrador Smart Campus.
+Ejercicio 1 – Recorridos sobre el árbol base
+Se analizó manualmente el árbol propuesto en la guía práctica para determinar el resultado de cada recorrido antes de ejecutar el código. Esto permitió verificar que la implementación era correcta al contrastar la salida del programa con los resultados esperados.
+
+
+
+
+        10
+       /  \
+      5    15
+     / \  /  \
+    2   7 12  20
+
+Resultados obtenidos:
+•	Preorden:   10, 5, 2, 7, 15, 12, 20
+•	Inorden:    2, 5, 7, 10, 12, 15, 20
+•	Postorden:  2, 7, 5, 12, 20, 15, 10
+•	BFS:        10, 5, 15, 2, 7, 12, 20
+El recorrido Inorden generó los valores en orden ascendente, lo cual confirma que el árbol cumple la propiedad de un BST. BFS visitó correctamente los nodos nivel por nivel, desde la raíz hasta las hojas.
+Ejercicio 2 – Árbol extendido con nuevos nodos
+Se modificó el árbol base utilizando la función insertar(), que aplica la propiedad BST para ubicar cada nuevo valor en su posición correcta. Se insertaron los nodos 1, 3, 18 y 25, obteniendo la siguiente estructura:
+Capturas de la ejecución del ejercicio número 2.
+C++
+
+Java
+
+ 
+
+Resultados obtenidos en C++ y Java (idénticos en ambos lenguajes):
+•	Preorden:   10, 5, 2, 1, 3, 7, 15, 12, 20, 18, 25
+•	Inorden:    1, 2, 3, 5, 7, 10, 12, 15, 18, 20, 25
+•	Postorden:  1, 3, 2, 7, 5, 12, 18, 25, 20, 15, 10
+•	BFS:        10, 5, 15, 2, 7, 12, 20, 1, 3, 18, 25
+Se puede observar que el Inorden mantiene el orden ascendente incluso con los nuevos nodos, lo cual reafirma la propiedad del BST.
+Ejercicio 3 – Contar el total de nodos
+Se implementó la función contarnodos() en ambos lenguajes. La función recorre todo el árbol de manera recursiva y retorna la suma de 1 por cada nodo visitado. El caso base retorna 0 cuando el nodo es nulo.
+
+Capturas de la ejecución del ejercicio número 3.
+C++
+ 
+Java
+ 
+
+Resultado obtenido: Total de nodos = 11
+El resultado es correcto: el árbol modificado contiene los 7 nodos del árbol base (10, 5, 15, 2, 7, 12, 20) más los 4 nodos insertados (1, 3, 18, 25).
+Ejercicio 4 – Contar nodos hoja
+Se implementó la función contarhojas() que identifica los nodos hoja, es decir, aquellos que no tienen ningún hijo. La condición de hoja se verifica comprobando que tanto el hijo izquierdo como el derecho sean nulos.
+Capturas de la ejecución del ejercicio número 4.
+C++
+ 
+Java
+ 
+
+Resultado obtenido: Total de hojas = 6
+Las hojas del árbol modificado son: 1, 3, 7, 12, 18 y 25. Todos estos nodos carecen de descendientes, lo que confirma la correcta identificación por parte de la función.
+Ejercicio 5 – Aplicación al proyecto integrador Smart Campus
+El proyecto integrador Smart Campus es un sistema universitario diseñado para centralizar y digitalizar los procesos académicos y administrativos de la institución. Para representar la estructura modular de este sistema, se utilizó un árbol binario donde cada nodo corresponde a un módulo funcional.
+La raíz del árbol representa el sistema principal Smart Campus. El subárbol izquierdo agrupa los módulos orientados a la gestión de usuarios (estudiantes, docentes y personal), mientras que el subárbol derecho concentra los módulos de gestión de recursos académicos e institucionales. Los nodos hoja representan las operaciones concretas disponibles en cada módulo.
+
+
+
+
+             Smart Campus
+            /             \
+   Gestión Usuarios    Gestión Recursos
+       /       \           /         \
+ Registrar   Buscar    Préstamos   Reportes
+
+La estructura jerárquica permite organizar el acceso a cada funcionalidad de manera lógica y escalable. A continuación, se explica qué recorrido resulta más adecuado según la operación del sistema:
